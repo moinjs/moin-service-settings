@@ -1,0 +1,29 @@
+{
+  "name": "moin-service-settings",
+  "description": "settings for moin services",
+  "keywords": [
+    "service",
+    "settings",
+    "moin"
+  ],
+  "author": "Torben Hartmann",
+  "homapage": "http://moinjs.github.io/",
+  "license": "MIT",
+  "repository": "moinjs/moin-service-settings",
+  "engines": {
+    "node": ">=6.0"
+  },
+  "version": "1.1.0",
+  "moin": {
+    "type": "module",
+    "moduleDependencies": [
+      "moin-service-loader"
+    ],
+    "settings": {
+      "configFolder": "config.d"
+    }
+  },
+  "dependencies": {
+    "chokidar": "^1.6.0"
+  }
+}
