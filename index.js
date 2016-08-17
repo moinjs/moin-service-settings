@@ -72,10 +72,10 @@ module.exports = function (moin, _settings) {
                 }
             }))
         }).then(()=> {
-            setTimeout(()=> {
+            setImmediate(()=> {
                 _watcher.set(file, {id: handler.getId(), name: handler.getService().getName(), loaded: true});
                 _ids.set(handler.getId(), file);
-            }, 1000);
+            });
         });
     });
 
@@ -98,9 +98,8 @@ module.exports = function (moin, _settings) {
                     logger.info(`settings for service ${h.name} have changed. reloading...`);
                     moin.emit("serviceChanged", h.id);
                 } else {
-                    logger.debug(h);
                     _watcher.delete(f);
-                    moin.loadService(h.path);
+                    moin.emit("serviceChanged", h.path);
                 }
             }
         };
